@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TibbiTech AI Chat</title>
+    <link rel="stylesheet" href="chat-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* تنسيقات صندوق المحادثة المحدثة */
+        body { background: #f8f9ff; height: 100vh; overflow: hidden; }
+        
+        .chat-container { 
+            width: 100%; 
+            max-width: 420px; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 20px; 
+            margin: 0 auto; 
+        }
+
+        /* الهيدر الموحد مع باقي الصفحات */
+        .chat-header-session {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-top: 10px;
+        }
+
+        .chat-header-session h1 {
+            color: #6a6691; /* نفس درجة اللون الموحدة */
+            font-size: 26px; /* نفس الحجم الموحد */
+            font-weight: bold;
+        }
+
+        .back-link-main {
+            color: #6a6691;
+            text-decoration: none;
+            display: flex;
+        }
+
+        /* منطقة الرسائل */
+        .messages-area { 
+            flex: 1; 
+            overflow-y: auto; 
+            padding: 10px 0; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+        }
+        
+        .msg { 
+            padding: 12px 18px; 
+            border-radius: 20px; 
+            max-width: 85%; 
+            font-size: 16px; 
+            line-height: 1.4; 
+        }
+        
+        .msg.bot { 
+            background: #9a97bd; 
+            color: white; 
+            align-self: flex-start; 
+            border-bottom-left-radius: 2px; 
+        }
+        
+        .msg.user { 
+            background: #e0e0e0; 
+            color: #333; 
+            align-self: flex-end; 
+            border-bottom-right-radius: 2px; 
+        }
+
+        /* بار الكتابة */
+        .input-bar { 
+            display: flex; 
+            gap: 10px; 
+            padding: 20px 0; 
+            background: #f8f9ff; 
+        }
+        
+        .input-bar input { 
+            flex: 1; 
+            padding: 15px; 
+            border-radius: 30px; 
+            border: 2px solid #9a97bd; 
+            outline: none; 
+            font-size: 16px; 
+        }
+        
+        .send-btn { 
+            background: #9a97bd; 
+            color: white; 
+            border: none; 
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .typing { 
+            font-style: italic; 
+            font-size: 12px; 
+            color: #9a97bd; 
+            margin-bottom: 5px; 
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header-session">
+            <a href="chat.html" class="back-link-main">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>TibbiTech Assistant</h1>
+        </header>
+
+        <div class="messages-area" id="chatBox">
+            <div class="msg bot">Hello! I'm your TibbiTech assistant. How can I help you with your health today?</div>
+        </div>
+
+        <div id="typingIndicator" class="typing">Assistant is typing...</div>
+
+        <div class="input-bar">
+            <input type="text" id="userInput" placeholder="Describe your symptoms...">
+            <button class="send-btn" onclick="handleSend()"><i data-lucide="send"></i></button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const chatBox = document.getElementById('chatBox');
+        const userInput = document.getElementById('userInput');
+        const typingIndicator = document.getElementById('typingIndicator');
+
+        function handleSend() {
+            const text = userInput.value.trim();
+            if (text === "") return;
+
+            addMessage(text, 'user');
+            userInput.value = "";
+
+            typingIndicator.style.display = "block";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            setTimeout(() => {
+                typingIndicator.style.display = "none";
+                let reply = getBotResponse(text);
+                addMessage(reply, 'bot');
+            }, 1000);
+        }
+
+        function addMessage(text, sender) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `msg ${sender}`;
+            msgDiv.innerText = text;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            const val = input.toLowerCase();
+            if (val.includes("hello") || val.includes("hi")) return "Hello! How are you feeling today?";
+            if (val.includes("headache")) return "I recommend resting in a quiet room. If the pain is severe, please consult Dr. Mohammed Saeed.";
+            if (val.includes("heart")) return "For heart-related concerns, it's best to speak with Dr. Saleh Albatati.";
+            return "I've noted that. Can you tell me more about what you're feeling?";
+        }
+
+        userInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") handleSend();
+        });
+    </script>
+</body>
+</html>
