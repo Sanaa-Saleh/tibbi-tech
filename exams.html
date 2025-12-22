@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Examination - TibbiTech</title>
+    <link rel="stylesheet" href="exams-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="exams-container">
+        <header class="exams-header">
+            <a href="patient-dashboard.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>Medical examination</h1>
+        </header>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-input">
+            <i data-lucide="search" class="search-icon"></i>
+        </div>
+
+        <div class="vital-cards">
+            <div class="card heart-rate-card">
+                <div class="card-info">
+                    <span class="card-title">Heart Rate</span>
+                    <span class="card-value">96</span>
+                    <span class="card-unit">bpm</span>
+                </div>
+                <div class="heart-graph">
+                    <svg viewBox="0 0 100 40" class="pulse-wave">
+                        <polyline points="0,20 20,20 25,5 35,35 40,20 60,20 65,10 75,30 80,20 100,20" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="bottom-row">
+                <div class="card blood-group-card">
+                    <i data-lucide="droplet" class="card-icon"></i>
+                    <span class="card-title">Blood Group</span>
+                    <span class="card-value">O+</span>
+                </div>
+                <div class="card weight-card">
+                    <i data-lucide="scale" class="card-icon"></i>
+                    <span class="card-title">Weight</span>
+                    <span class="card-value">45 kg</span>
+                </div>
+            </div>
+        </div>
+
+        <section class="reports-section">
+            <h2 class="section-title">Lattest Report :</h2>
+            
+            <div class="report-item">
+                <div class="report-icon bg-cyan">
+                    <i data-lucide="clipboard-list"></i>
+                </div>
+                <div class="report-details">
+                    <h3>General Health</h3>
+                    <span>4 files</span>
+                </div>
+            </div>
+
+            <div class="report-item">
+                <div class="report-icon bg-pink">
+                    <i data-lucide="clipboard-list"></i>
+                </div>
+                <div class="report-details">
+                    <h3>Diabetes</h3>
+                    <span>4 files</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

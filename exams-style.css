@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '29LTRiwaya';
+}
+
+body { background-color: #ffffff; padding: 20px; color: #6a6691; }
+
+.exams-container { max-width: 420px; margin: 0 auto; }
+
+.exams-header {
+    display: flex; align-items: center; gap: 15px; margin-bottom: 25px;
+}
+.exams-header h1 { font-size: 24px; font-weight: bold; }
+.back-link { color: #6a6691; text-decoration: none; }
+
+/* شريط البحث */
+.search-container {
+    position: relative; margin-bottom: 30px;
+}
+.search-input {
+    width: 100%; padding: 12px 20px; background: #f0f0f0; border: none;
+    border-radius: 25px; font-size: 16px; outline: none;
+}
+.search-icon {
+    position: absolute; right: 20px; top: 50%; transform: translateY(-50%);
+    color: #999; width: 20px;
+}
+
+/* بطاقات المؤشرات */
+.vital-cards { display: flex; flex-direction: column; gap: 15px; }
+
+.card { border-radius: 20px; padding: 15px; color: white; position: relative; }
+
+.heart-rate-card {
+    background-color: #c4d9ff; height: 120px; display: flex; justify-content: space-between;
+}
+.card-info { display: flex; flex-direction: column; justify-content: center; }
+.card-title { font-size: 18px; font-weight: 500; }
+.card-value { font-size: 25px; font-weight: bold; margin-top: 5px; }
+.card-unit { font-size: 15px; }
+
+.heart-graph { width: 50%; align-self: center; }
+.pulse-wave { fill: none; stroke: #6a6691; stroke-width: 2; }
+
+.bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+.blood-group-card { background-color: #f7b2bd; height: 130px; text-align: center; }
+.weight-card { background-color: #a9dfbf; height: 130px; text-align: center; }
+
+.card-icon { width: 30px; height: 30px; margin-bottom: 10px; display: block; margin: 0 auto 10px; }
+
+/* التقارير */
+.reports-section { margin-top: 35px; }
+.section-title { font-size: 20px; margin-bottom: 20px; }
+
+.report-item {
+    border: 2px solid #9a97bd; border-radius: 20px; padding: 10px;
+    display: flex; align-items: center; gap: 15px; margin-bottom: 15px;
+}
+.report-icon {
+    width: 60px; height: 60px; border-radius: 15px; display: flex;
+    align-items: center; justify-content: center; color: white;
+}
+.bg-cyan { background-color: #e0f2f1; color: #4db6ac; }
+.bg-pink { background-color: #fce4ec; color: #f06292; }
+
+.report-details h3 { font-size: 16px; margin-bottom: 2px; }
+.report-details span { font-size: 13px; color: #999; }
