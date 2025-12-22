@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors - TibbiTech</title>
+    <link rel="stylesheet" href="doctors-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="doctors-container">
+        <header class="doctors-header">
+            <a href="patient-dashboard.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>Doctors</h1>
+        </header>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search" class="search-input">
+            <i data-lucide="search" class="search-icon"></i>
+        </div>
+
+        <section class="categories-section">
+            <h2 class="section-title">Categories :</h2>
+            <div class="categories-grid">
+                <div class="cat-card bg-blue">
+                    <i data-lucide="heart"></i>
+                    <span>Heart</span>
+                </div>
+                <div class="cat-card bg-teal">
+                    <i data-lucide="eye"></i>
+                    <span>Eye</span>
+                </div>
+                <div class="cat-card bg-pink">
+                    <i data-lucide="brain"></i>
+                    <span>Brain</span>
+                </div>
+                <div class="cat-card bg-orange">
+                    <i data-lucide="ear"></i>
+                    <span>Ear</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="doctors-list-section">
+            <h2 class="section-title">Doctors :</h2>
+            
+            <div class="doctor-card border-blue">
+                <div class="doc-avatar bg-light-blue">
+                    <i data-lucide="user"></i>
+                </div>
+                <div class="doc-info">
+                    <h3>Dr. Saleh Albatati</h3>
+                    <p>Specialization : Cardiovascular specialist</p>
+                    <div class="evaluation">
+                        <span>Evaluation : </span>
+                        <div class="stars">⭐⭐⭐⭐☆</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doctor-card border-teal">
+                <div class="doc-avatar bg-light-teal">
+                    <i data-lucide="user"></i>
+                </div>
+                <div class="doc-info">
+                    <h3>Dr. Khalid Aljohani</h3>
+                    <p>Specialization : Pulmonologist</p>
+                    <div class="evaluation">
+                        <span>Evaluation : </span>
+                        <div class="stars">⭐⭐⭐⭐☆</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doctor-card border-pink">
+                <div class="doc-avatar bg-light-pink">
+                    <i data-lucide="user"></i>
+                </div>
+                <div class="doc-info">
+                    <h3>Dr. Mohammed Saeed</h3>
+                    <p>Specialization : Consultant neurologist</p>
+                    <div class="evaluation">
+                        <span>Evaluation : </span>
+                        <div class="stars">⭐⭐⭐⭐☆</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

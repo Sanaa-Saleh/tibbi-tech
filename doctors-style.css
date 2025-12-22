@@ -1,0 +1,57 @@
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: '29LTRiwaya';
+}
+
+body { background-color: #ffffff; padding: 20px; color: #6a6691; }
+
+.doctors-container { max-width: 420px; margin: 0 auto; }
+
+.doctors-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+.doctors-header h1 { font-size: 26px; font-weight: bold; }
+.back-link { color: #6a6691; text-decoration: none; }
+
+/* البحث */
+.search-container { position: relative; margin-bottom: 30px; }
+.search-input {
+    width: 100%; padding: 12px 20px; background: #f1f1f1; border: none;
+    border-radius: 25px; font-size: 16px; outline: none;
+}
+.search-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #999; }
+
+/* التصنيفات */
+.section-title { font-size: 20px; margin-bottom: 15px; font-weight: bold; }
+.categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 35px; }
+
+.cat-card {
+    border-radius: 15px; padding: 15px 5px; display: flex; flex-direction: column;
+    align-items: center; gap: 8px; color: white; cursor: pointer;
+}
+.cat-card i { width: 40px; height: 40px; }
+.cat-card span { font-size: 15px; font-weight: bold; }
+
+.bg-blue { background-color: #c4d9ff; }
+.bg-teal { background-color: #a2d2df; }
+.bg-pink { background-color: #f7b2bd; }
+.bg-orange { background-color: #f9c9a0; }
+
+/* قائمة الأطباء */
+.doctor-card {
+    border: 2px solid #9a97bd; border-radius: 20px; padding: 10px;
+    display: flex; align-items: center; gap: 15px; margin-bottom: 15px;
+}
+
+.doc-avatar {
+    width: 70px; height: 70px; border-radius: 15px; display: flex;
+    align-items: center; justify-content: center; color: white;
+}
+.doc-avatar i { width: 40px; height: 40px; }
+
+.bg-light-blue { background-color: #e3f2fd; color: #90caf9; }
+.bg-light-teal { background-color: #e0f2f1; color: #80cbc4; }
+.bg-light-pink { background-color: #fce4ec; color: #f48fb1; }
+
+.doc-info h3 { font-size: 16px; color: #6a6691; }
+.doc-info p { font-size: 12px; color: #888; margin: 3px 0; }
+.evaluation { font-size: 12px; display: flex; align-items: center; gap: 5px; }
+.stars { color: #f1c40f; }
