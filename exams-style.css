@@ -15,7 +15,6 @@ body { background-color: #ffffff; padding: 20px; color: #6a6691; }
 .exams-header h1 { font-size: 24px; font-weight: bold; }
 .back-link { color: #6a6691; text-decoration: none; }
 
-/* شريط البحث */
 .search-container {
     position: relative; margin-bottom: 30px;
 }
@@ -28,7 +27,6 @@ body { background-color: #ffffff; padding: 20px; color: #6a6691; }
     color: #999; width: 20px;
 }
 
-/* بطاقات المؤشرات */
 .vital-cards { display: flex; flex-direction: column; gap: 15px; }
 
 .card { border-radius: 20px; padding: 15px; color: white; position: relative; }
@@ -51,7 +49,6 @@ body { background-color: #ffffff; padding: 20px; color: #6a6691; }
 
 .card-icon { width: 30px; height: 30px; margin-bottom: 10px; display: block; margin: 0 auto 10px; }
 
-/* التقارير */
 .reports-section { margin-top: 35px; }
 .section-title { font-size: 20px; margin-bottom: 20px; }
 
@@ -67,4 +64,5 @@ body { background-color: #ffffff; padding: 20px; color: #6a6691; }
 .bg-pink { background-color: #fce4ec; color: #f06292; }
 
 .report-details h3 { font-size: 16px; margin-bottom: 2px; }
+
 .report-details span { font-size: 13px; color: #999; }
