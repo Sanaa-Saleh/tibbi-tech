@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine - TibbiTech</title>
+    <link rel="stylesheet" href="medicine-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="medicine-container">
+        <header class="medicine-header">
+            <a href="patient-dashboard.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>Medicine</h1>
+        </header>
+
+        <div class="tab-switcher">
+            <button id="btn-prescription" class="tab-btn active" onclick="switchTab('prescription')">Prescription</button>
+            <button id="btn-dosage" class="tab-btn" onclick="switchTab('dosage')">Dosage schedule</button>
+        </div>
+
+        <div id="prescription-content" class="content-section active">
+            <div class="info-card">
+                <p><strong>Drug name:</strong> Epinephrine</p>
+                <p><strong>Used for:</strong> for Anaphylaxis shock</p>
+                <p><strong>Dosage:</strong> Once; if symptoms persist, repeat after 5 m</p>
+            </div>
+            <div class="info-card">
+                <p><strong>Drug name:</strong> Inhaled Corticosteroids (Budesonide)</p>
+                <p><strong>Used for:</strong> for Asthma</p>
+                <p><strong>Dosage:</strong> One spray; if you need more, wait 30 s</p>
+            </div>
+            <div class="info-card">
+                <p><strong>Drug name:</strong> Scopolamine</p>
+                <p><strong>Used for:</strong> for Motion sickness</p>
+                <p><strong>Dosage:</strong> One patch</p>
+            </div>
+            <button class="main-action-btn">Medication collection date</button>
+        </div>
+
+        <div id="dosage-content" class="content-section">
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <h3 id="monthDisplay"></h3>
+                    <div class="calendar-nav">
+                        <i data-lucide="chevron-left" onclick="changeMonth(-1)"></i>
+                        <i data-lucide="chevron-right" onclick="changeMonth(1)"></i>
+                    </div>
+                </div>
+                <div id="calendarGrid" class="calendar-grid"></div>
+            </div>
+
+            <div class="dosage-card">
+                <div class="dosage-main">
+                    <div class="status-circle" onclick="toggleCheck(this)"></div>
+                    <div class="dosage-details">
+                        <h4>Name: Epinephrine</h4>
+                        <p>Used for: for Anaphylaxis shock</p>
+                    </div>
+                </div>
+                <a href="https://youtu.be/ziEPZlovDgk" target="_blank" class="how-to-use">
+                    <span class="label">How to use it</span>
+                    <i data-lucide="play-circle"></i>
+                </a>
+            </div>
+
+            <div class="dosage-card">
+                <div class="dosage-main">
+                    <div class="status-circle" onclick="toggleCheck(this)"></div>
+                    <div class="dosage-details">
+                        <h4>Name: Inhaled Corticosteroids</h4>
+                        <p>Used for: for Asthma</p>
+                    </div>
+                </div>
+                <a href="https://youtu.be/IcS-AMn4dCc" target="_blank" class="how-to-use">
+                    <span class="label">How to use it</span>
+                    <i data-lucide="play-circle"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function switchTab(tab) {
+            const btnP = document.getElementById('btn-prescription');
+            const btnD = document.getElementById('btn-dosage');
+            const contP = document.getElementById('prescription-content');
+            const contD = document.getElementById('dosage-content');
+
+            if (tab === 'prescription') {
+                btnP.classList.add('active'); btnD.classList.remove('active');
+                contP.classList.add('active'); contD.classList.remove('active');
+            } else {
+                btnD.classList.add('active'); btnP.classList.remove('active');
+                contD.classList.add('active'); contP.classList.remove('active');
+                renderCalendar();
+            }
+        }
+
+        let displayDate = new Date(); 
+
+        function renderCalendar() {
+            const monthDisplay = document.getElementById('monthDisplay');
+            const calendarGrid = document.getElementById('calendarGrid');
+            calendarGrid.innerHTML = '';
+
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            monthDisplay.innerText = `${monthNames[displayDate.getMonth()]} ${displayDate.getFullYear()}`;
+
+            // تحديد تاريخ اليوم الفعلي بدقة
+            const now = new Date();
+            const currentDay = now.getDate();
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+
+            ['S','M','T','W','T','F','S'].forEach(day => {
+                const span = document.createElement('span');
+                span.style.fontWeight = 'bold';
+                span.innerText = day;
+                calendarGrid.appendChild(span);
+            });
+
+            const firstDay = new Date(displayDate.getFullYear(), displayDate.getMonth(), 1).getDay();
+            const daysInMonth = new Date(displayDate.getFullYear(), displayDate.getMonth() + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                calendarGrid.appendChild(document.createElement('span'));
+            }
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                const span = document.createElement('span');
+                span.innerText = d;
+                
+                // المقارنة لتلوين رقم 21
+                if (d === currentDay && 
+                    displayDate.getMonth() === currentMonth && 
+                    displayDate.getFullYear() === currentYear) {
+                    span.classList.add('today'); 
+                }
+                calendarGrid.appendChild(span);
+            }
+        }
+
+        function changeMonth(diff) {
+            displayDate.setMonth(displayDate.getMonth() + diff);
+            renderCalendar();
+        }
+
+        function toggleCheck(el) { el.classList.toggle('checked'); }
+
+        window.onload = renderCalendar;
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TibbiTech - Login</title>
+    <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="logo.png" alt="TibbiTech Logo" class="logo">
+            </div>
+        </header>
+
+        <main>
+            <h2 class="instruction-text login-title">Log in to your account</h2>
+            
+            <div class="input-group">
+                <input type="text" placeholder="Enter your name" class="login-input" id="userName">
+                
+                <input type="number" placeholder="Enter ID number" class="login-input" id="idNumber" oninput="limitLength(this, 10)">
+                <span id="idError" class="error-text"></span>
+
+                <input type="tel" placeholder="Enter your mobile number" class="login-input" id="mobileNumber" oninput="limitLength(this, 10)">
+                <span id="mobileError" class="error-text"></span>
+            </div>
+
+            <button class="role-btn login-btn" onclick="login()">Log in</button>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

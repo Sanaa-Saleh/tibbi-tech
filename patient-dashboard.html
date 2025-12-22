@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TibbiTech - Dashboard</title>
+    <link rel="stylesheet" href="patient-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="user-info">
+                <h1 id="welcomeName">Hello,</h1>
+                <p>We wish you continued health and well-being.</p>
+            </div>
+            <div class="notification-icon">
+                <i data-lucide="bell"></i>
+                <span class="badge">1</span>
+            </div>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <i data-lucide="search" class="search-icon"></i>
+        </div>
+
+        <div class="motivation-banner">
+            <div class="banner-content">
+                <div class="banner-icon-bg">
+                    <i data-lucide="heart-pulse" size="40"></i>
+                </div>
+                <p class="banner-text">
+                    Allah is with us, so don't be sad. He will help us through all the hard times, and we'll get the reward for our patience.
+                </p>
+            </div>
+        </div>
+
+        <section class="services-section">
+            <h2 class="section-title">For you</h2>
+            <div class="services-grid">
+                <div id="medicine-btn" class="service-card blue">
+                    <i data-lucide="pill"></i>
+                    <span>Medicine and prescription</span>
+                </div>
+                <div id="appointments-btn" class="service-card teal">
+                    <i data-lucide="calendar"></i>
+                    <span>Appointments</span>
+                </div>
+                <div id="exams-btn" class="service-card pink">
+                    <i data-lucide="activity"></i>
+                    <span>Medical examination</span>
+                </div>
+                <div id="doctors-btn" class="service-card orange">
+                    <i data-lucide="stethoscope"></i>
+                    <span>Doctors</span>
+                </div>
+                <div id="chat-btn" class="service-card green">
+                    <i data-lucide="message-square"></i>
+                    <span>Chat</span>
+                </div>
+                <div id="account-btn" class="service-card purple">
+                    <i data-lucide="user"></i>
+                    <span>My account</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // كود عرض اسم المريض
+        const savedName = localStorage.getItem('patientName');
+        if (savedName) {
+            document.getElementById('welcomeName').textContent = `Hello ${savedName},`;
+        }
+
+        // تفعيل الأيقونات
+        lucide.createIcons();
+    </script>
+</body>
+</html>

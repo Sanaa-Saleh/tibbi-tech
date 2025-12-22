@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - TibbiTech</title>
+    <link rel="stylesheet" href="medicine-style.css"> 
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* تنسيقات إضافية خاصة بصفحة المواعيد لضمان مطابقة الصور */
+        .appointment-card {
+            border: 2px solid #9a97bd;
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #6a6691;
+        }
+        .appointment-info p { margin: 5px 0; font-size: 16px; }
+        .calendar-icon-bg { color: #9a97bd; }
+        .book-btn {
+            width: 100%;
+            background: #9a97bd;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="medicine-container">
+        <header class="medicine-header">
+            <a href="patient-dashboard.html" class="back-link"><i data-lucide="arrow-left"></i></a>
+            <h1>Appointments</h1>
+        </header>
+
+        <div class="tab-switcher">
+            <button id="btn-upcoming" class="tab-btn active" onclick="switchAppointmentTab('upcoming')">Upcoming dates</button>
+            <button id="btn-previous" class="tab-btn" onclick="switchAppointmentTab('previous')">Previous</button>
+        </div>
+
+        <div id="upcoming-content" class="content-section active">
+            <div class="calendar-card">
+                <div class="calendar-header">
+                    <h3 id="monthDisplay"></h3>
+                    <div class="calendar-nav">
+                        <i data-lucide="chevron-left" onclick="changeMonth(-1)"></i>
+                        <i data-lucide="chevron-right" onclick="changeMonth(1)"></i>
+                    </div>
+                </div>
+                <div id="calendarGrid" class="calendar-grid"></div>
+            </div>
+
+            <div class="appointment-card">
+                <div class="appointment-info">
+                    <p>Today: Thursday</p>
+                    <p>Date: 19/2/2026</p>
+                    <p>Dr. Mohammed Saeed</p>
+                </div>
+                <div class="calendar-icon-bg"><i data-lucide="calendar-days" style="width: 40px; height: 40px;"></i></div>
+            </div>
+            <button class="book-btn">Book a new appointment</button>
+        </div>
+
+        <div id="previous-content" class="content-section">
+            <div class="appointment-card">
+                <div class="appointment-info">
+                    <p>Today: Tuesday</p>
+                    <p>Date: 19/12/2025</p>
+                    <p>Dr. Sanaa Saleh</p>
+                </div>
+                <i data-lucide="calendar-days" class="calendar-icon-bg"></i>
+            </div>
+            <div class="appointment-card">
+                <div class="appointment-info">
+                    <p>Today: Sunday</p>
+                    <p>Date: 19/10/2025</p>
+                    <p>Dr. Joudy Mohammed</p>
+                </div>
+                <i data-lucide="calendar-days" class="calendar-icon-bg"></i>
+            </div>
+            <div class="appointment-card">
+                <div class="appointment-info">
+                    <p>Today: Tuesday</p>
+                    <p>Date: 19/8/2025</p>
+                    <p>Dr. Sulafah khalid</p>
+                </div>
+                <i data-lucide="calendar-days" class="calendar-icon-bg"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // وظيفة التبديل بين التابات
+        function switchAppointmentTab(tab) {
+            const btnU = document.getElementById('btn-upcoming');
+            const btnP = document.getElementById('btn-previous');
+            const contU = document.getElementById('upcoming-content');
+            const contP = document.getElementById('previous-content');
+
+            if (tab === 'upcoming') {
+                btnU.classList.add('active'); btnP.classList.remove('active');
+                contU.classList.add('active'); contP.classList.remove('active');
+                renderCalendar(); // إعادة رسم التقويم عند العودة
+            } else {
+                btnP.classList.add('active'); btnU.classList.remove('active');
+                contP.classList.add('active'); contU.classList.remove('active');
+            }
+        }
+
+        // إعدادات التقويم الذكي
+        let displayDate = new Date(); 
+
+        function renderCalendar() {
+            const monthDisplay = document.getElementById('monthDisplay');
+            const calendarGrid = document.getElementById('calendarGrid');
+            if (!calendarGrid) return;
+            calendarGrid.innerHTML = '';
+
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            monthDisplay.innerText = `${monthNames[displayDate.getMonth()]} ${displayDate.getFullYear()}`;
+
+            const now = new Date();
+            const currentDay = now.getDate();
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+
+            ['S','M','T','W','T','F','S'].forEach(d => {
+                const s = document.createElement('span'); s.innerText = d; s.style.fontWeight = 'bold';
+                calendarGrid.appendChild(s);
+            });
+
+            const firstDay = new Date(displayDate.getFullYear(), displayDate.getMonth(), 1).getDay();
+            const daysInMonth = new Date(displayDate.getFullYear(), displayDate.getMonth() + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) calendarGrid.appendChild(document.createElement('span'));
+
+            for (let d = 1; d <= daysInMonth; d++) {
+                const span = document.createElement('span');
+                span.innerText = d;
+                // تمييز اليوم الحالي (21 ديسمبر)
+                if (d === currentDay && displayDate.getMonth() === currentMonth && displayDate.getFullYear() === currentYear) {
+                    span.classList.add('today'); 
+                }
+                calendarGrid.appendChild(span);
+            }
+        }
+
+        function changeMonth(diff) {
+            displayDate.setMonth(displayDate.getMonth() + diff);
+            renderCalendar();
+        }
+
+        window.onload = renderCalendar;
+    </script>
+</body>
+</html>

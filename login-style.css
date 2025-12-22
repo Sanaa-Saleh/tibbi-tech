@@ -1,0 +1,96 @@
+/* تنسيقات صفحة تسجيل الدخول - نسخة التصميم المرفق */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '29LTRiwaya';
+}
+
+body {
+    background: #ffffff; /* الخلفية بيضاء نقية كما في الصورة */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #766f9f;
+}
+
+container {
+    text-align: center;
+    width: 100%;
+    max-width: 420px; /* العرض المثالي للصورة */
+    padding: 20px;
+}
+
+.logo-container img {
+    width: 300px; /* حجم الشعار المتناسب */
+    margin-bottom: 1px; /* مسافة كبيرة بين الشعار والنص */
+    height: auto;
+}
+
+.login-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #6a6691;
+    margin-bottom: 30px;
+    text-align: left; /* تحويل النص لليسار */
+    width: 100%; /* جعل العنوان يأخذ عرض الحاوية بالكامل ليتمكن من التحرك لليسار */
+    padding-left: 5px; /* إزاحة بسيطة جداً ليتحاذى تماماً مع انحناء الحقل */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* مسافات واضحة بين الحقول */
+    margin-bottom: 40px;
+}
+
+.login-input {
+    background-color: #e6e6e6; /* الرمادي الفاتح جداً */
+    border: none;
+    padding: 25px 30px; /* حشو داخلي يعطي سمكاً للحقل */
+    border-radius: 20px; /* انحناء دائري كامل تقريباً كما في الصورة */
+    font-size: 20px;
+    font-family: '29LTRiwaya';
+    color: #766f9f;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.login-input::placeholder {
+    color: #a5a5a5; /* لون الـ placeholder الباهت في التصميم */
+    font-weight: 500;
+}
+
+/* زر الدخول الملون */
+.login-btn {
+    background-color: #9791b9; /* اللون البنفسجي الهادئ الموحد للأزرار */
+    color: white;
+    border: none;
+    padding: 22px;
+    border-radius: 20px; /* انحناء أقل قليلاً من الحقول لمظهر متوازن */
+    font-size: 26px; /* نص كلمة Log in كبير وواضح */
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+}
+
+/* تنسيق رسائل الخطأ لتظهر بشكل أنيق تحت الحقول المنحنية */
+.error-text {
+    color: #ff4d4d;
+    font-size: 16px;
+    text-align: left;
+    margin-top: -18px;
+    margin-left: 25 px;
+    display: none;
+    
+}
+
+.input-error {
+    background-color: #fceaea; /* تغيير خلفية الحقل عند الخطأ */
+}
