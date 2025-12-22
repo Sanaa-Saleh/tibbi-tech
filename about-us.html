@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who are we? - TibbiTech</title>
+    <link rel="stylesheet" href="account-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* استخدام نفس الدرجة المستخدمة في باقي صفحات التطبيق */
+        .simple-header h1 {
+            color: #6a6691; 
+            font-weight: bold;
+            font-size: 26px;
+        }
+
+        .section-title {
+            color: #6a6691; 
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* السهم بنفس اللون الغامق */
+        .back-link-main {
+            color: #6a6691;
+            text-decoration: none;
+            display: flex;
+            margin-right: 10px;
+        }
+
+        /* لضمان مسافة جيدة تحت الهيدر */
+        .simple-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="account-container">
+        <header class="simple-header">
+            <a href="account.html" class="back-link-main">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>Who are we?</h1>
+        </header>
+
+        <div class="about-purple-card">
+            <p>
+                TibbiTech lights the way on your healthcare journey. From booking appointments to managing medications, our AI-powered guidance helps you find the right doctor—making your path to wellness easy, safe, and bright.
+            </p>
+        </div>
+
+        <section class="team-section">
+            <h2 class="section-title">Made by :</h2>
+            
+            <div class="team-card">
+                <div class="avatar-box"><i data-lucide="user"></i></div>
+                <span>Sanaa Saleh Albatati</span>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar-box"><i data-lucide="user"></i></div>
+                <span>Sulafah khalid Aljohani</span>
+            </div>
+
+            <div class="team-card">
+                <div class="avatar-box"><i data-lucide="user"></i></div>
+                <span>Joudy Mohammed</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

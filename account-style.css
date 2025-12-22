@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '29LTRiwaya';
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.account-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* المستطيل البنفسجي العلوي - التصميم المطلوب */
+.purple-card-header {
+    background-color: #9a97bd;
+    border-radius: 30px; /* انحناء من جميع الجهات ليصبح مستطيلاً مستقلاً */
+    padding: 20px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.back-link { color: white; text-decoration: none; }
+
+.header-nav h1 { font-size: 24px; font-weight: bold; }
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-circle {
+    background: white;
+    color: #9a97bd;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.profile-circle i { width: 50px; height: 50px; }
+
+.profile-section h2 { font-size: 22px; font-weight: bold; }
+
+/* تنسيق القائمة */
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu-item {
+    border: 2px solid #9a97bd;
+    border-radius: 20px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #6a6691;
+}
+
+.item-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-box {
+    background-color: #9a97bd;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item span { font-size: 16px; font-weight: 500; }
+
+/* زر تسجيل الخروج */
+.logout-btn {
+    width: 100%;
+    background-color: #9a97bd;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 25px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+.logout-btn i {
+    color: #d13d3d; /* أيقونة الباب الحمراء */
+    width: 30px;
+    height: 30px;
+}
+
+/* تنسيقات إضافية لصفحة من نحن */
+.simple-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+}
+
+.back-link-dark {
+    color: #6a6691; /* لون السهم غامق لأن الخلفية بيضاء هنا */
+    text-decoration: none;
+    display: flex;
+}
+
+.about-purple-card {
+    background-color: #9a97bd;
+    color: white;
+    padding: 30px 25px;
+    border-radius: 30px; /* زوايا منحنية من كل الجهات */
+    text-align: center;
+    line-height: 1.6;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.team-card {
+    border: 2px solid #9a97bd;
+    border-radius: 20px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.avatar-box {
+    background-color: #dcdbe8; /* لون رمادي فاتح للأيقونة كما في الصورة */
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-card span {
+    font-size: 17px;
+    font-weight: 500;
+    color: #6a6691;
+}

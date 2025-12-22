@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - TibbiTech</title>
+    <link rel="stylesheet" href="account-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="account-container">
+        <div class="purple-card-header">
+            <div class="header-nav">
+                <a href="patient-dashboard.html" class="back-link">
+                    <i data-lucide="arrow-left"></i>
+                </a>
+                <h1>My account</h1>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-circle">
+                    <i data-lucide="user-round"></i>
+                </div>
+                <h2 id="userNameDisplay">name</h2>
+            </div>
+        </div>
+
+        <div class="menu-list">
+            <div class="menu-item">
+                <div class="item-left">
+                    <div class="icon-box"><i data-lucide="file-text"></i></div>
+                    <span>My personal information</span>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-left">
+                    <div class="icon-box"><i data-lucide="phone"></i></div>
+                    <span>Contact information</span>
+                </div>
+            </div>
+
+            <a href="https://youtube.com/playlist?list=PLv4VVZM1QJ17E1LCQ7h1917ZuHUjXft0_&si=StgoowodQ4GbpqKb" target="_blank" class="menu-item">
+                <div class="item-left">
+                    <div class="icon-box"><i data-lucide="play-square"></i></div>
+                    <span>first aid</span>
+                </div>
+            </a>
+
+            <a href="about-us.html" class="menu-item">
+                <div class="item-left">
+                    <div class="icon-box"><i data-lucide="help-circle"></i></div>
+                    <span>Who are we ?</span>
+                </div>
+            </a>
+        </div>
+
+        <button class="logout-btn" onclick="location.href='index.html'">
+            <i data-lucide="log-out"></i>
+            <span>Log out</span>
+        </button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const savedName = localStorage.getItem('patientName');
+        if (savedName) document.getElementById('userNameDisplay').innerText = savedName;
+    </script>
+</body>
+</html>
