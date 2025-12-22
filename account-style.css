@@ -17,10 +17,9 @@ body {
     max-width: 400px;
 }
 
-/* المستطيل البنفسجي العلوي - التصميم المطلوب */
 .purple-card-header {
     background-color: #9a97bd;
-    border-radius: 30px; /* انحناء من جميع الجهات ليصبح مستطيلاً مستقلاً */
+    border-radius: 30px; 
     padding: 20px;
     color: white;
     margin-bottom: 30px;
@@ -59,7 +58,6 @@ body {
 
 .profile-section h2 { font-size: 22px; font-weight: bold; }
 
-/* تنسيق القائمة */
 .menu-list {
     display: flex;
     flex-direction: column;
@@ -95,7 +93,6 @@ body {
 
 .menu-item span { font-size: 16px; font-weight: 500; }
 
-/* زر تسجيل الخروج */
 .logout-btn {
     width: 100%;
     background-color: #9a97bd;
@@ -114,12 +111,11 @@ body {
 }
 
 .logout-btn i {
-    color: #d13d3d; /* أيقونة الباب الحمراء */
+    color: #d13d3d; 
     width: 30px;
     height: 30px;
 }
 
-/* تنسيقات إضافية لصفحة من نحن */
 .simple-header {
     display: flex;
     align-items: center;
@@ -129,7 +125,7 @@ body {
 }
 
 .back-link-dark {
-    color: #6a6691; /* لون السهم غامق لأن الخلفية بيضاء هنا */
+    color: #6a6691; 
     text-decoration: none;
     display: flex;
 }
@@ -138,10 +134,10 @@ body {
     background-color: #9a97bd;
     color: white;
     padding: 30px 25px;
-    border-radius: 30px; /* زوايا منحنية من كل الجهات */
+    border-radius: 30px; 
     text-align: center;
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 40px;
 }
 
@@ -161,7 +157,7 @@ body {
 }
 
 .avatar-box {
-    background-color: #dcdbe8; /* لون رمادي فاتح للأيقونة كما في الصورة */
+    background-color: #dcdbe8; 
     color: white;
     width: 55px;
     height: 55px;
@@ -172,7 +168,7 @@ body {
 }
 
 .team-card span {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 500;
-    color: #6a6691;
+    color: #9791b9;
 }
