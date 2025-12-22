@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '29LTRiwaya';
+}
+
+body {
+    background: linear-gradient(to bottom, #c7c3e4, #ffffff);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #766f9f;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.welcome-text {
+    font-size: 38px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.logo-container img {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.instruction-text {
+    font-size: 28px;
+    margin-bottom: 70px;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+.role-btn {
+    background-color: #9791b9;
+    color: white;
+    border: none;
+    padding: 25px 10px;
+    border-radius: 15px;
+    font-size: 26px;
+    cursor: pointer;
+    flex: 1;
+    transition: transform 0.2s;
+    white-space: nowrap;
+}
+
+.role-btn:hover {
+    transform: translateY(-3px);
+}
