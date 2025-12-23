@@ -10,7 +10,7 @@
 <body>
     <div class="exams-container">
         <header class="exams-header">
-            <a href="patient-dashboard.html" class="back-link">
+            <a href="#" id="smart-back-btn" class="back-link">
                 <i data-lucide="arrow-left"></i>
             </a>
             <h1>Medical examination</h1>
@@ -75,8 +75,31 @@
     </div>
 
     <script src="script.js"></script>
+    
     <script>
+        // تفعيل الأيقونات
         lucide.createIcons();
+
+        // منطق العودة الذكي (Smart Back Logic)
+        document.getElementById('smart-back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // معرفة الصفحة السابقة
+            const previousPage = document.referrer;
+
+            // إذا كان المستخدم قادماً من صفحة سجلات المرضى (الطبيب)
+            if (previousPage.includes('patient-records.html')) {
+                window.location.href = 'patient-records.html';
+            } 
+            // إذا كان المستخدم قادماً من لوحة تحكم المريض
+            else if (previousPage.includes('patient-dashboard.html')) {
+                window.location.href = 'patient-dashboard.html';
+            } 
+            // احتياطاً: إذا لم يتم العثور على المرجع، يرجع خطوة للخلف في المتصفح
+            else {
+                window.history.back();
+            }
+        });
     </script>
 </body>
 </html>
