@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* استخدام نفس الخط المذكور في كود المريض */
+    font-family: '29LTRiwaya';
+}
+
+body {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.dashboard-container {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* الهيدر العلوي */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    color: #6a6691;
+}
+
+.user-info h1 { font-size: 25px; font-weight: bold; }
+.user-info p { font-size: 20px; opacity: 0.7; }
+
+/* أيقونة التنبيهات */
+.notification-icon { position: relative; color: #b3b3b3; }
+.badge {
+    position: absolute; top: -5px; right: -5px;
+    background: #e6e6e6; border-radius: 50%;
+    padding: 2px 5px; font-size: 10px; color: #766f9f;
+}
+
+/* بار البحث */
+.search-bar { position: relative; margin-bottom: 25px; }
+.search-bar input {
+    width: 100%; background: #f0f0f0; border: none;
+    padding: 15px 20px; border-radius: 25px; font-size: 16px;
+}
+.search-icon {
+    position: absolute; right: 20px; top: 50%;
+    transform: translateY(-50%); color: #b3b3b3;
+}
+
+/* البانر البنفسجي للطبيب */
+.motivation-banner {
+    background: #9a97bd; border-radius: 25px;
+    padding: 20px; color: white; margin-bottom: 30px;
+}
+.banner-content { display: flex; align-items: center; gap: 15px; }
+.banner-icon-bg { background: rgba(255,255,255,0.2); padding: 25px; border-radius: 15px; }
+.banner-text { font-size: 18px; line-height: 1.4; }
+
+/* شبكة الخدمات (For you) */
+.section-title { font-size: 22px; color: #6a6691; margin-bottom: 20px; }
+.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+
+/* تصميم الكروت الموحد */
+.service-card {
+    height: 140px; border-radius: 25px;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 15px; text-align: center; font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card i { width: 35px; height: 35px; margin-bottom: 10px; }
+
+/* تأثيرات التفاعل (Hover & Active) */
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-card:active {
+    transform: scale(0.95);
+}
+
+/* توزيع الألوان لخدمات الطبيب */
+.blue { background: #e1ecfd; color: #5c8fdf; }
+.teal { background: #d1f0f0; color: #5cb0b0; }
+.pink { background: #fce1f0; color: #d074a9; }
+.orange { background: #fde2d5; color: #e28f6a; }
+.green { background: #e1f5e1; color: #76ac76; }
+.purple { background: #ede1f5; color: #9a76ac; }
