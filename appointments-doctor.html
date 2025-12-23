@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TibbiTech - Doctor Appointments</title>
+    <link rel="stylesheet" href="doctor-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* هيدر في جهة اليسار */
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            padding: 20px 0;
+            direction: ltr; 
+        }
+        .dashboard-header h1 {
+            font-size: 25px;
+            color: #6a6691;
+            margin: 0;
+        }
+        .back-link {
+            color: #6a6691;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* التبويبات */
+        .tab-container {
+            display: flex;
+            border: 2px solid #9a97bd;
+            border-radius: 30px;
+            margin: 10px 0 25px 0;
+            overflow: hidden;
+            background: white;
+            direction: ltr;
+        }
+        .tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            color: #9a97bd;
+            transition: 0.3s;
+        }
+        .tab.active { background-color: #9a97bd; color: white; }
+
+        .content-section { display: none; direction: ltr; }
+        .content-section.active { display: block; }
+
+        /* التقويم */
+        .calendar-box { margin-bottom: 25px; color: #6a6691; background: white; padding: 15px; border-radius: 20px; }
+        .calendar-header { display: flex; justify-content: space-around; align-items: center; margin-bottom: 20px; font-weight: bold; }
+        .days-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; text-align: center; }
+        .day { padding: 10px 5px; cursor: pointer; border-radius: 50%; font-size: 0.9rem; transition: 0.2s; position: relative; }
+        
+        /* اليوم المختار */
+        .day.selected { background: #9a97bd !important; color: white !important; font-weight: bold; }
+        
+        /* علامة لليوم الحالي (نقطة تحت الرقم) */
+        .day.today::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: #9a97bd;
+            border-radius: 50%;
+        }
+        .day.selected.today::after { background: white; }
+
+        .day.muted { color: #ccc; font-weight: bold; }
+
+        /* بطاقات المواعيد القادمة */
+        .app-card { border: 2px solid #d1d1e0; border-radius: 20px; display: flex; margin-bottom: 15px; overflow: hidden; background: white; text-align: left; }
+        .date-side { width: 70px; padding: 15px; text-align: center; display: flex; flex-direction: column; justify-content: center; font-weight: bold; }
+        .blue-side { background-color: #e0f2f2; color: #5fbaba; }
+        .orange-side { background-color: #fdf2e9; color: #e68d50; }
+        .info-side { padding: 15px; flex: 1; color: #6a6691; }
+        .info-side h4 { margin: 0; font-size: 1rem; color: #7e79af; }
+        .info-side p { margin: 5px 0 0; font-size: 0.9rem; opacity: 0.8; }
+
+        /* بطاقات المواعيد السابقة */
+        .prev-card { border: 2px solid #d1d1e0; border-radius: 20px; padding: 18px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; background: white; text-align: left; color: #7e79af; }
+        .prev-info p { margin: 3px 0; font-size: 0.95rem; font-weight: 500; }
+        .calendar-icon-bg { color: #9a97bd; opacity: 0.5; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <a href="doctor-dashboard.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>Appointments</h1>
+        </header>
+
+        <div class="tab-container">
+            <div id="tab-upcoming" class="tab active" onclick="switchTab('upcoming')">Upcoming dates</div>
+            <div id="tab-previous" class="tab" onclick="switchTab('previous')">Previous</div>
+        </div>
+
+        <div id="upcoming" class="content-section active">
+            <div class="calendar-box">
+                <div class="calendar-header">
+                    <i data-lucide="chevron-left" onclick="moveMonth(-1)" style="cursor:pointer"></i>
+                    <span id="monthDisplay"></span>
+                    <i data-lucide="chevron-right" onclick="moveMonth(1)" style="cursor:pointer"></i>
+                </div>
+                <div class="days-grid" id="daysGrid"></div>
+            </div>
+            
+            <div class="app-card">
+                <div class="date-side blue-side"><strong>Fri</strong><span>19</span></div>
+                <div class="info-side"><h4>Patient's name: Ali Saleh</h4><p>Time : 9:00 am</p></div>
+            </div>
+            <div class="app-card">
+                <div class="date-side orange-side"><strong>Fri</strong><span>19</span></div>
+                <div class="info-side"><h4>Patient's name: Ward Mohammed</h4><p>Time : 10:00 am</p></div>
+            </div>
+        </div>
+
+        <div id="previous" class="content-section">
+            <div class="prev-card">
+                <div class="prev-info">
+                    <p>Patient's name: Ali Saleh</p>
+                    <p>Today: Tuesday</p>
+                    <p>Date: 19/12/2025</p>
+                </div>
+                <div class="calendar-icon-bg"><i data-lucide="calendar-days" size="45"></i></div>
+            </div>
+
+            <div class="prev-card">
+                <div class="prev-info">
+                    <p>Patient's name: jouri Khalid</p>
+                    <p>Today: Monday</p>
+                    <p>Date: 18/12/2025</p>
+                </div>
+                <div class="calendar-icon-bg"><i data-lucide="calendar-days" size="45"></i></div>
+            </div>
+
+            <div class="prev-card">
+                <div class="prev-info">
+                    <p>Patient's name: Ajwan Aljohani</p>
+                    <p>Today: Friday</p>
+                    <p>Date: 15/12/2025</p>
+                </div>
+                <div class="calendar-icon-bg"><i data-lucide="calendar-days" size="45"></i></div>
+            </div>
+
+            <div class="prev-card">
+                <div class="prev-info">
+                    <p>Patient's name: Yasmin khalid</p>
+                    <p>Today: Tuesday</p>
+                    <p>Date: 12/12/2025</p>
+                </div>
+                <div class="calendar-icon-bg"><i data-lucide="calendar-days" size="45"></i></div>
+            </div>
+
+            <div class="prev-card">
+                <div class="prev-info">
+                    <p>Patient's name: Ward Mohammed</p>
+                    <p>Today: sunday</p>
+                    <p>Date: 10/12/2025</p>
+                </div>
+                <div class="calendar-icon-bg"><i data-lucide="calendar-days" size="45"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        const realToday = new Date();
+        let displayDate = new Date(); 
+        let selectedDay = realToday.getDate();
+
+        function renderCalendar() {
+            const monthDisplay = document.getElementById('monthDisplay');
+            const daysGrid = document.getElementById('daysGrid');
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            
+            monthDisplay.innerText = `${months[displayDate.getMonth()]} ${displayDate.getFullYear()}`;
+            daysGrid.innerHTML = `
+                <span class="day muted">S</span><span class="day muted">M</span><span class="day muted">T</span>
+                <span class="day muted">W</span><span class="day muted">T</span><span class="day muted">F</span><span class="day muted">S</span>
+            `;
+            
+            const firstDay = new Date(displayDate.getFullYear(), displayDate.getMonth(), 1).getDay();
+            const daysInMonth = new Date(displayDate.getFullYear(), displayDate.getMonth() + 1, 0).getDate();
+            
+            for (let i = 0; i < firstDay; i++) { daysGrid.appendChild(document.createElement('span')); }
+            
+            for (let d = 1; d <= daysInMonth; d++) {
+                const span = document.createElement('span');
+                span.classList.add('day');
+                span.innerText = d;
+
+                // تمييز اليوم الحقيقي بنقطة
+                if (d === realToday.getDate() && displayDate.getMonth() === realToday.getMonth() && displayDate.getFullYear() === realToday.getFullYear()) {
+                    span.classList.add('today');
+                }
+
+                // تمييز المختار باللون البنفسجي
+                if (d === selectedDay) {
+                    span.classList.add('selected');
+                }
+                
+                span.onclick = function() {
+                    document.querySelectorAll('.day').forEach(el => el.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedDay = d;
+                };
+                daysGrid.appendChild(span);
+            }
+        }
+
+        function moveMonth(dir) { 
+            displayDate.setMonth(displayDate.getMonth() + dir); 
+            selectedDay = (displayDate.getMonth() === realToday.getMonth()) ? realToday.getDate() : 1;
+            renderCalendar(); 
+        }
+
+        function switchTab(type) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            if(type === 'upcoming') {
+                document.getElementById('tab-upcoming').classList.add('active');
+                document.getElementById('upcoming').classList.add('active');
+            } else {
+                document.getElementById('tab-previous').classList.add('active');
+                document.getElementById('previous').classList.add('active');
+            }
+        }
+
+        renderCalendar();
+    </script>
+</body>
+</html>
