@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TibbiTech - Doctor Dashboard</title>
+    <link rel="stylesheet" href="doctor-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="user-info">
+                <h1 id="welcomeDoctorName">Hello Dr. Name,</h1> 
+                <p>Thank you for your care, you are a source of hope.</p>
+            </div>
+            <div class="notification-icon">
+                <i data-lucide="bell"></i>
+                <span class="badge">1</span>
+            </div>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+            <i data-lucide="search" class="search-icon"></i>
+        </div>
+
+        <div class="motivation-banner">
+            <div class="banner-content">
+                <div class="banner-icon-bg">
+                    <i data-lucide="stethoscope" size="40"></i>
+                </div>
+                <p class="banner-text">
+                    Medicine is not just a science, but an art as well. It is not limited to preparing medicines and bandages, but deals with the essence of life itself.
+                </p>
+            </div>
+        </div>
+
+        <section class="services-section">
+            <h2 class="section-title">For you</h2>
+            <div class="services-grid">
+                
+                <div class="service-card blue" style="cursor: pointer;" onclick="location.href='medicine-doctor.html'">
+                    <div class="icon-box"><i data-lucide="pill"></i></div>
+                    <span>Medicines and drug stock</span>
+                </div>
+
+                <div id="appointments-btn" class="service-card teal" style="cursor: pointer;" onclick="location.href='appointments-doctor.html'">
+                    <div class="icon-box"><i data-lucide="calendar"></i></div>
+                    <span>Appointments</span>
+                </div>
+
+                <div id="records-btn" class="service-card pink" style="cursor: pointer;" onclick="location.href='patient-records.html'">
+                    <div class="icon-box"><i data-lucide="folder-heart"></i></div>
+                    <span>Patient Records</span>
+                </div>
+
+                <div class="service-card orange" style="cursor: pointer;" onclick="location.href='contact-doctors.html'">
+                    <div class="icon-box"><i data-lucide="users"></i></div>
+                    <span>Contact the doctors and nurses</span>
+                </div>
+
+                <div class="service-card green" style="cursor: pointer;" onclick="location.href='evaluate.html'">
+                    <div class="icon-box"><i data-lucide="line-chart"></i></div>
+                     <span>Evaluate</span>
+                    </div>
+
+                <div id="doctor-account-btn" class="service-card purple" style="cursor: pointer;" onclick="location.href='account.html'">
+                     <div class="icon-box"><i data-lucide="user-cog"></i></div>
+                     <span>My account</span>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // تفعيل الأيقونات
+        lucide.createIcons();
+
+        // التعديل ليتوافق مع سكريبتك:
+        // أنتِ تستخدمين 'docName' في ملف script.js لذا سنبحث عنه هنا
+        const savedDocName = localStorage.getItem('docName');
+        if (savedDocName) {
+            document.getElementById('welcomeDoctorName').textContent = `Hello Dr. ${savedDocName},`;
+        }
+    </script>
+</body>
+</html>

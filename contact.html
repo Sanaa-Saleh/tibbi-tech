@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Doctors & Nurses</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body { background-color: #ffffff; padding: 20px; color: #6a6691; }
+
+        .doctors-container { max-width: 420px; margin: 0 auto; }
+
+        .doctors-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; direction: ltr; }
+        .doctors-header h1 { font-size: 24px; font-weight: bold; color: #6a6691; }
+        .back-link { color: #6a6691; text-decoration: none; display: flex; align-items: center; cursor: pointer; }
+
+        /* البحث */
+        .search-container { position: relative; margin-bottom: 30px; }
+        .search-input {
+            width: 100%; padding: 12px 20px; background: #f1f1f1; border: none;
+            border-radius: 25px; font-size: 16px; outline: none; color: #6a6691;
+        }
+        .search-icon { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: #999; }
+
+        /* التصنيفات */
+        .section-title { font-size: 18px; margin-bottom: 15px; font-weight: bold; color: #6a6691; }
+        .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 35px; }
+
+        .cat-card {
+            border-radius: 15px; padding: 15px 5px; display: flex; flex-direction: column;
+            align-items: center; gap: 8px; color: white; cursor: pointer; transition: 0.3s;
+        }
+        .cat-card:hover { transform: scale(1.05); opacity: 0.9; }
+        .cat-card span { font-size: 12px; font-weight: bold; }
+
+        .bg-blue { background-color: #c4d9ff; }
+        .bg-teal { background-color: #a2d2df; }
+        .bg-pink { background-color: #f7b2bd; }
+        .bg-orange { background-color: #f9c9a0; }
+
+        /* قائمة الأطباء والممرضات */
+        .doctor-card {
+            border: 2px solid #9a97bd; border-radius: 20px; padding: 15px;
+            display: flex; align-items: center; gap: 15px; margin-bottom: 15px;
+            background: white; transition: 0.3s;
+        }
+        .doctor-card:hover { border-color: #6a6691; background-color: #fcfbff; }
+
+        .doc-avatar {
+            width: 65px; height: 65px; border-radius: 15px; display: flex;
+            align-items: center; justify-content: center;
+        }
+
+        .bg-light-blue { background-color: #e3f2fd; color: #90caf9; }
+        .bg-light-teal { background-color: #e0f2f1; color: #80cbc4; }
+        .bg-light-pink { background-color: #fce4ec; color: #f48fb1; }
+
+        .doc-info { flex: 1; text-align: left; }
+        .doc-info h3 { font-size: 16px; color: #6a6691; margin: 0; }
+        .doc-info p { font-size: 13px; color: #9a97bd; margin: 4px 0; }
+        .comm-link { 
+            font-size: 12px; color: #6a6691; text-decoration: underline; 
+            cursor: pointer; font-weight: 600; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="doctors-container">
+    <header class="doctors-header">
+        <a href="doctor-dashboard.html" class="back-link">
+            <i data-lucide="arrow-left"></i>
+        </a>
+        <h1>Contact the doctors and nurses</h1>
+    </header>
+
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search">
+        <i data-lucide="search" class="search-icon"></i>
+    </div>
+
+    <div class="section-title">Categories :</div>
+    <div class="categories-grid">
+        <div class="cat-card bg-blue">
+            <i data-lucide="stethoscope"></i>
+            <span>Doctor</span>
+        </div>
+        <div class="cat-card bg-teal">
+            <i data-lucide="file-text"></i>
+            <span>Admin</span>
+        </div>
+        <div class="cat-card bg-pink">
+            <i data-lucide="user"></i>
+            <span>Nurse</span>
+        </div>
+        <div class="cat-card bg-orange">
+            <i data-lucide="shield-plus"></i>
+            <span>Pharm</span>
+        </div>
+    </div>
+
+    <div class="section-title">Doctors and nurses :</div>
+
+    <div class="doctor-card">
+        <div class="doc-avatar bg-light-blue">
+            <i data-lucide="user" size="35"></i>
+        </div>
+        <div class="doc-info">
+            <h3>Dr. Saleh Albatati</h3>
+            <p>Specialization: Cardiovascular specialist</p>
+            <span class="comm-link">communication</span>
+        </div>
+    </div>
+
+    <div class="doctor-card">
+        <div class="doc-avatar bg-light-teal">
+            <i data-lucide="user" size="35"></i>
+        </div>
+        <div class="doc-info">
+            <h3>Dr. Khalid Aljohani</h3>
+            <p>Specialization: Pulmonologist</p>
+            <span class="comm-link">communication</span>
+        </div>
+    </div>
+
+    <div class="doctor-card">
+        <div class="doc-avatar bg-light-pink">
+            <i data-lucide="user" size="35"></i>
+        </div>
+        <div class="doc-info">
+            <h3>Dr. Mohammed Saeed</h3>
+            <p>Specialization: Consultant neurologist</p>
+            <span class="comm-link">communication</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+</html>

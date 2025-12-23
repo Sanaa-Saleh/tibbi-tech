@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TibbiTech - Doctor Login</title>
+    <link rel="stylesheet" href="login-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="logo.png" alt="TibbiTech Logo" class="logo">
+            </div>
+        </header>
+
+        <main>
+            <h2 class="instruction-text login-title">Doctor Log in</h2>
+            
+            <div class="input-group">
+                <input type="text" placeholder="Enter your name" class="login-input" id="docNameInput">
+                
+                <input type="number" placeholder="Enter Medical ID number" class="login-input" id="docID" oninput="limitLength(this, 10)">
+                <span id="idError" class="error-text"></span>
+
+                <input type="tel" placeholder="Enter your mobile number" class="login-input" id="docMobile" oninput="limitLength(this, 10)">
+                <span id="mobileError" class="error-text"></span>
+            </div>
+
+            <button class="role-btn login-btn" onclick="doctorLoginAction()">Log in</button>
+        </main>
+    </div>
+
+    <script>
+        // دالة تحديد طول الأرقام (نفس التي استخدمناها للمريض)
+        function limitLength(element, max) {
+            if (element.value.length > max) {
+                element.value = element.value.slice(0, max);
+            }
+        }
+
+        // دالة تسجيل دخول الدكتور
+        function doctorLoginAction() {
+            const name = document.getElementById('docNameInput').value;
+            const id = document.getElementById('docID').value;
+            const mobile = document.getElementById('docMobile').value;
+
+            if (name.trim() !== "" && id.length === 10 && mobile.length === 10) {
+                // حفظ اسم الدكتور لكي يظهر في الـ Dashboard
+                localStorage.setItem('docName', name);
+                
+                // التوجيه لصفحة لوحة تحكم الدكتور
+                window.location.href = 'doctor-dashboard.html';
+            } else {
+                alert("Please fill all fields correctly (ID and Mobile must be 10 digits)");
+            }
+        }
+    </script>
+</body>
+</html>
