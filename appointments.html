@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="medicine-style.css"> 
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-
+        /* تنسيقات إضافية خاصة بصفحة المواعيد لضمان مطابقة الصور */
         .appointment-card {
             border: 2px solid #9a97bd;
             border-radius: 25px;
@@ -101,6 +101,7 @@
     <script>
         lucide.createIcons();
 
+        // وظيفة التبديل بين التابات
         function switchAppointmentTab(tab) {
             const btnU = document.getElementById('btn-upcoming');
             const btnP = document.getElementById('btn-previous');
@@ -110,13 +111,14 @@
             if (tab === 'upcoming') {
                 btnU.classList.add('active'); btnP.classList.remove('active');
                 contU.classList.add('active'); contP.classList.remove('active');
-                renderCalendar(); 
+                renderCalendar(); // إعادة رسم التقويم عند العودة
             } else {
                 btnP.classList.add('active'); btnU.classList.remove('active');
                 contP.classList.add('active'); contU.classList.remove('active');
             }
         }
 
+        // إعدادات التقويم الذكي
         let displayDate = new Date(); 
 
         function renderCalendar() {
@@ -146,7 +148,7 @@
             for (let d = 1; d <= daysInMonth; d++) {
                 const span = document.createElement('span');
                 span.innerText = d;
-                
+                // تمييز اليوم الحالي (21 ديسمبر)
                 if (d === currentDay && displayDate.getMonth() === currentMonth && displayDate.getFullYear() === currentYear) {
                     span.classList.add('today'); 
                 }
@@ -162,5 +164,4 @@
         window.onload = renderCalendar;
     </script>
 </body>
-
 </html>
