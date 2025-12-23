@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Stock - TibbiTech</title>
+    <link rel="stylesheet" href="doctor-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* الهيدر في جهة اليسار */
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            padding: 10px 0 30px 0;
+            direction: ltr;
+        }
+        .dashboard-header h1 {
+            font-size: 24px;
+            color: #6a6691;
+            margin: 0;
+        }
+        .back-link {
+            color: #6a6691;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        /* قسم الرسم البياني */
+        .chart-section {
+            text-align: left;
+            direction: ltr;
+            margin-bottom: 40px;
+        }
+
+        .inventory-title {
+            color: #9a97bd;
+            font-size: 14px;
+            margin-bottom: 50px;
+            font-weight: 600;
+        }
+
+        .chart-area {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 200px;
+            border-bottom: 2px solid #eeeeee;
+            padding: 0 10px 5px 10px;
+        }
+
+        .bar-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+        }
+
+        .bar-box {
+            width: 100%;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bar-num {
+            position: absolute;
+            top: -25px;
+            font-weight: bold;
+            color: #6a6691;
+            font-size: 14px;
+        }
+
+        /* ألوان وارتفاعات الأعمدة */
+        .pink { background-color: #ffaaaa; height: 80px; }
+        .teal { background-color: #99d5d5; height: 100px; }
+        .blue { background-color: #4fa3d1; height: 160px; }
+
+        .bar-name {
+            margin-top: 15px;
+            font-size: 11px;
+            color: #7e79af;
+            text-align: center;
+            font-weight: 500;
+            height: 30px;
+            line-height: 1.2;
+        }
+
+        /* قسم الجرعة */
+        .dosage-area {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .dosage-title {
+            color: #6a6691;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .prescription-container {
+            border: 2px solid #d1d1e0;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: white;
+            margin-bottom: 30px;
+        }
+
+        .prescription-container textarea {
+            border: none;
+            outline: none;
+            width: 100%;
+            height: 60px;
+            font-size: 15px;
+            color: #6a6691;
+            resize: none;
+            background: transparent;
+        }
+
+        /* زر الصرف بدون رسالة تنبيه */
+        .btn-dispense {
+            background-color: #9a97bd;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 18px;
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-dispense:active {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <a href="medicine-doctor.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>Drug stock</h1>
+        </header>
+
+        <div class="chart-section">
+            <p class="inventory-title">Drug Inventory and Dispensing Status – December 2025</p>
+            
+            <div class="chart-area">
+                <div class="bar-wrapper">
+                    <div class="bar-box pink">
+                        <span class="bar-num">8</span>
+                    </div>
+                    <span class="bar-name">residual</span>
+                </div>
+
+                <div class="bar-wrapper">
+                    <div class="bar-box teal">
+                        <span class="bar-num">10</span>
+                    </div>
+                    <span class="bar-name">The doctor dispensed</span>
+                </div>
+
+                <div class="bar-wrapper">
+                    <div class="bar-box blue">
+                        <span class="bar-num">16</span>
+                    </div>
+                    <span class="bar-name">The hospital dispensed</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dosage-area">
+            <div class="dosage-title">Determining the dosage :</div>
+            <div class="prescription-container">
+                <i data-lucide="file-plus-2" style="color: #9a97bd;"></i>
+                <textarea placeholder="Write the patient's prescription here"></textarea>
+            </div>
+        </div>
+
+        <button class="btn-dispense">Dispense the medication</button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

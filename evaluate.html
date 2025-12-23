@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluate - TibbiTech</title>
+    <link rel="stylesheet" href="doctor-style.css"> <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* تنسيق الهيدر ليكون متناسقاً مع طلبك السابق (يسار) */
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            padding: 20px 0;
+            direction: ltr;
+        }
+        .dashboard-header h1 {
+            font-size: 25px;
+            color: #6a6691;
+            margin: 0;
+        }
+        .back-link {
+            color: #6a6691;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-subtitle {
+            color: #9a97bd;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* حاوية الرسم البياني */
+        .chart-container {
+            background: white;
+            padding: 15px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+
+        .notes-title {
+            color: #6a6691;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        /* كروت الملاحظات */
+        .note-card {
+            border: 2px solid #d1d1e0;
+            border-radius: 20px;
+            display: flex;
+            margin-bottom: 15px;
+            overflow: hidden;
+            background: white;
+            min-height: 90px;
+        }
+
+        .avatar-box {
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .bg-blue { background-color: #eef4ff; }
+        .bg-teal { background-color: #e0f2f2; }
+
+        .note-content {
+            padding: 15px;
+            flex: 1;
+            color: #6a6691;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <header class="dashboard-header">
+            <a href="doctor-dashboard.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>Evaluate</h1>
+        </header>
+
+        <p class="section-subtitle">Doctor's assessment – December 2025</p>
+
+        <div class="chart-container">
+            <canvas id="evaluationChart"></canvas>
+        </div>
+
+        <h2 class="notes-title">Patient Notes :</h2>
+
+        <div class="note-card">
+            <div class="avatar-box bg-blue">
+                <i data-lucide="user" color="#9a97bd" size="35"></i>
+            </div>
+            <div class="note-content">
+                The doctor is honest in his work; I was very impressed with his aunt.
+            </div>
+        </div>
+
+        <div class="note-card">
+            <div class="avatar-box bg-teal">
+                <i data-lucide="user" color="#5fbaba" size="35"></i>
+            </div>
+            <div class="note-content">
+                The best doctor I have ever dealt with. I highly recommend him; he does a fantastic job.
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // رسم بياني مطابق للصورة
+        const ctx = document.getElementById('evaluationChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    data: [4, 5, 3, 5],
+                    borderColor: '#f5b08e',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#f5b08e',
+                    tension: 0, 
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, max: 5, ticks: { stepSize: 1, color: '#6a6691' } },
+                    x: { ticks: { color: '#6a6691' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
