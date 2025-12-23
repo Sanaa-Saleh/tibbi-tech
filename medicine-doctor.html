@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine - TibbiTech</title>
+    <link rel="stylesheet" href="doctor-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .dashboard-header { display: flex; align-items: center; gap: 15px; padding: 20px 0; direction: ltr; }
+        .dashboard-header h1 { font-size: 25px; color: #6a6691; margin: 0; }
+        .back-link { color: #6a6691; text-decoration: none; display: flex; align-items: center; }
+        
+        .search-container { background: #f0f0f0; border-radius: 25px; padding: 10px 20px; display: flex; align-items: center; margin: 10px 0 25px 0; }
+        .search-container input { border: none; background: transparent; flex: 1; outline: none; font-size: 16px; color: #6a6691; }
+        .search-icon { color: #9a97bd; }
+
+        .drug-card { 
+            border: 2px solid #d1d1e0; border-radius: 20px; padding: 15px 20px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            margin-bottom: 15px; cursor: pointer; transition: 0.3s; background: white;
+        }
+        .drug-card:hover { border-color: #9a97bd; transform: translateY(-2px); }
+        .drug-info h4 { color: #7e79af; margin: 0; font-size: 1.1rem; }
+        .drug-info p { color: #9a97bd; margin: 5px 0 0; font-size: 0.9rem; }
+        .drug-icon { color: #9a97bd; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <a href="doctor-dashboard.html" class="back-link"><i data-lucide="arrow-left"></i></a>
+            <h1>Medicine</h1>
+        </header>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search">
+            <i data-lucide="search" class="search-icon"></i>
+        </div>
+
+        <div class="drug-list">
+            <div class="drug-card" onclick="location.href='drug-stock.html'">
+                <div class="drug-info">
+                    <h4>Drug name: Epinephrine</h4>
+                    <p>Used for: for Anaphylaxis shock</p>
+                </div>
+                <i data-lucide="syringe" class="drug-icon" size="40"></i>
+            </div>
+
+            <div class="drug-card" onclick="location.href='drug-stock.html'">
+                <div class="drug-info">
+                    <h4>Drug name: Insulin Injection</h4>
+                    <p>Used for: for Type 1 Diabetes</p>
+                </div>
+                <i data-lucide="syringe" class="drug-icon" size="40"></i>
+            </div>
+
+            <div class="drug-card" onclick="location.href='drug-stock.html'">
+                <div class="drug-info">
+                    <h4>Drug name: Scopolamine</h4>
+                    <p>Used for: for Motion sickness</p>
+                </div>
+                <i data-lucide="bandage" class="drug-icon" size="40"></i>
+            </div>
+
+            <div class="drug-card" onclick="location.href='drug-stock.html'">
+                <div class="drug-info">
+                    <h4>Drug name: Inhaled Corticosteroids</h4>
+                    <p>Used for: for Asthma</p>
+                </div>
+                <i data-lucide="wind" class="drug-icon" size="40"></i>
+            </div>
+        </div>
+    </div>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
