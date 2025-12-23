@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Records - TibbiTech</title>
+    <link rel="stylesheet" href="doctor-style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .dashboard-header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            padding: 20px 0;
+            direction: ltr;
+        }
+        .dashboard-header h1 {
+            font-size: 25px;
+            color: #6a6691;
+            margin: 0;
+        }
+        .back-link {
+            color: #6a6691;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .records-list { margin-top: 20px; }
+        .patient-card {
+            border: 2px solid #d1d1e0;
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background: white;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-align: left;
+        }
+        .patient-card:hover {
+            transform: translateY(-3px);
+            border-color: #9a97bd;
+        }
+        .patient-name {
+            color: #7e79af;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        .record-icon {
+            color: #9a97bd;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <header class="dashboard-header">
+            <a href="doctor-dashboard.html" class="back-link">
+                <i data-lucide="arrow-left"></i>
+            </a>
+            <h1>Patient Records</h1>
+        </header>
+
+        <div class="records-list">
+            <div class="patient-card" onclick="location.href='exams.html'">
+                <div class="patient-name">Patient's name: Ali Saleh</div>
+                <div class="record-icon"><i data-lucide="folder-plus" size="45"></i></div>
+            </div>
+
+            <div class="patient-card" onclick="location.href='exams.html'">
+                <div class="patient-name">Patient's name: jouri Khalid</div>
+                <div class="record-icon"><i data-lucide="folder-plus" size="45"></i></div>
+            </div>
+
+            <div class="patient-card" onclick="location.href='exams.html'">
+                <div class="patient-name">Patient's name: Ajwan Aljohani</div>
+                <div class="record-icon"><i data-lucide="folder-plus" size="45"></i></div>
+            </div>
+
+            <div class="patient-card" onclick="location.href='exams.html'">
+                <div class="patient-name">Patient's name: Yasmin khalid</div>
+                <div class="record-icon"><i data-lucide="folder-plus" size="45"></i></div>
+            </div>
+
+            <div class="patient-card" onclick="location.href='exams.html'">
+                <div class="patient-name">Patient's name: Ward Mohammed</div>
+                <div class="record-icon"><i data-lucide="folder-plus" size="45"></i></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
